@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tab js</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 260px;
+				height: 30px;
+				margin: 100px auto;
+			}
+			#biaoti{
+				width: 260px;
+				height: 30px;
+				background: #9CF;
+				color: #fff;
+				font-size:14px ;
+				border: 1px solid black;
+			}
+			#biaoti div{
+				float: left;
+				padding: 8px 20px;
+				cursor: pointer;
+			}
+			#con{
+				width: 260px;
+				height: 100px;
+				border: 1px solid black;
+			}
+			#con div{
+				padding: 20px;
+			}
+			.on{
+				background: #F60;
+				color: #fff;
+				padding: 8px 15px;
+			}
+		</style>	</head>
+	<body>
+		<script src="js/jquery.3.1.1.js"></script>
+		<script>
+			$(function(){
+				//给每一个标题添加点击事件
+				$("#biaoti div").click(function(){
+					//当点击标题的时候让当前的标题加上on样式，其他的标题则清楚on样式
+					$(this).addClass("on").siblings().removeClass("on");
+					//获取当前标题的下标赋值给index
+					var index=$(this).index()
+					//点击第几个标题的时候查找当前下标的内容，让当前的内容显示，其他的隐藏 
+					$("#con div").eq(index).show().siblings().hide()
+				})
+			})
+
+		</script>
+	</body>
+</html>
